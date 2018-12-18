@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.canvasWrapper{
+			width: 800px;
+			margin: 50px auto;
+		}
+	 	#canvas{
+	 		border: 1px solid #acacac;
+	 		background: rgba(71,106,40,0.63);	 		
+	 	}
+		
+	</style>
+</head>
+<body>
+	<div class='canvasWrapper'>
+		<canvas id='canvas' width='800' height='600' >
+		</canvas>
+    </div>
+	
+</body>
+<script>
+	const canvas=document.getElementById('canvas');
+	const cxt=canvas.getContext('2d');
+	//这里因为最后一个黑矩形的lineWidth是6，最后剩下4；
+	for(i=0;i<17;i++){
+		drawWhiteRectangle(cxt,300+12*i,100+12*i,400-24*i,400-24*i);
+		drawBlackRectangle(cxt,306+12*i,106+12*i,388-24*i,388-24*i);
+	}
+
+
+	function drawWhiteRectangle(cxt,x,y,width,height){
+		cxt.beginPath();
+		cxt.rect(x,y,width,height);
+		cxt.strokeStyle='white';
+		cxt.lineWidth=6;
+		cxt.stroke();
+	}
+	function drawBlackRectangle(cxt,x,y,width,height){
+		cxt.beginPath();
+		cxt.rect(x,y,width,height);
+		cxt.strokeStyle='black';
+		cxt.lineWidth=6;
+		cxt.stroke();
+	}
+</script>
+</html>
